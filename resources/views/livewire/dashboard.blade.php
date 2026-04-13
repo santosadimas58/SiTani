@@ -1,13 +1,55 @@
 <div>
     <x-header title="Dashboard HydroWatch" subtitle="Monitoring pengairan tanaman realtime" separator />
 
+    {{-- Stats --}}
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-        <x-stat title="Total Node" :value="$totalNodes" icon="o-cpu-chip" color="text-primary" />
-        <x-stat title="Node Aktif" :value="$activeNodes" icon="o-signal" color="text-success" />
-        <x-stat title="Total Data" :value="$totalReadings" icon="o-chart-bar" color="text-info" />
-        <x-stat title="Update" value="5 detik" icon="o-clock" color="text-warning" />
+        <x-card>
+            <div class="flex items-center gap-3">
+                <div class="p-3 bg-primary/10 rounded-lg">
+                    <x-icon name="o-cpu-chip" class="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                    <p class="text-2xl font-bold">{{ $totalNodes }}</p>
+                    <p class="text-xs opacity-50">Total Node</p>
+                </div>
+            </div>
+        </x-card>
+        <x-card>
+            <div class="flex items-center gap-3">
+                <div class="p-3 bg-success/10 rounded-lg">
+                    <x-icon name="o-signal" class="w-6 h-6 text-success" />
+                </div>
+                <div>
+                    <p class="text-2xl font-bold">{{ $activeNodes }}</p>
+                    <p class="text-xs opacity-50">Node Aktif</p>
+                </div>
+            </div>
+        </x-card>
+        <x-card>
+            <div class="flex items-center gap-3">
+                <div class="p-3 bg-info/10 rounded-lg">
+                    <x-icon name="o-chart-bar" class="w-6 h-6 text-info" />
+                </div>
+                <div>
+                    <p class="text-2xl font-bold">{{ $totalReadings }}</p>
+                    <p class="text-xs opacity-50">Total Data</p>
+                </div>
+            </div>
+        </x-card>
+        <x-card>
+            <div class="flex items-center gap-3">
+                <div class="p-3 bg-warning/10 rounded-lg">
+                    <x-icon name="o-clock" class="w-6 h-6 text-warning" />
+                </div>
+                <div>
+                    <p class="text-2xl font-bold">5 detik</p>
+                    <p class="text-xs opacity-50">Update</p>
+                </div>
+            </div>
+        </x-card>
     </div>
 
+    {{-- Node Cards --}}
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
         @forelse($nodes as $node)
         @php $reading = $node->latestReading; $pump = $node->latestPump; @endphp
@@ -59,6 +101,7 @@
         @endforelse
     </div>
 
+    {{-- Latest Readings --}}
     <x-card title="Data Terbaru" icon="o-clock" separator>
         <div class="overflow-x-auto">
             <table class="table table-zebra w-full text-sm">
