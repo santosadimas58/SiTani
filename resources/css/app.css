@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import 'tailwindcss';
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+
+/** daisyUI */
+@plugin "daisyui" {
+    themes: light --default, dark --prefersdark;
+}
+
+/* maryUI */
+@source "../../vendor/robsontenorio/mary/src/View/Components/**/*.php";
+
+/* Theme toggle */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* =====================
+   INPUT FIELDS - Clean
+   ===================== */
+input[type="email"],
+input[type="password"],
+input[type="text"],
+input[type="number"],
+input[type="time"],
+textarea,
+select {
+    background-color: oklch(var(--b1)) !important;
+    color: oklch(var(--bc)) !important;
+    border-color: oklch(var(--b3)) !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: oklch(var(--bc) / 0.4) !important;
+}
+
+option {
+    background-color: oklch(var(--b1)) !important;
+    color: oklch(var(--bc)) !important;
+}
+
+/* =====================
+   PAGINATOR
+   ===================== */
+.mary-table-pagination span[aria-current="page"] > span {
+    @apply bg-primary text-base-100;
+}
+.mary-table-pagination button {
+    @apply cursor-pointer;
+}
+
+/* =====================
+   SIDEBAR
+   ===================== */
+[data-drawer] .menu a,
+[data-drawer] .menu button {
+    border-radius: 0.625rem;
+    transition: all 0.2s ease;
+}
+
+/* =====================
+   CARDS
+   ===================== */
+.card {
+    transition: box-shadow 0.2s ease;
+}
+
+/* =====================
+   TABLES
+   ===================== */
+.table th {
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.6;
+}
+
+.table-zebra tbody tr:nth-child(even) {
+    background-color: oklch(var(--b2) / 0.5);
+}
+
+/* =====================
+   BADGES
+   ===================== */
+.badge {
+    font-weight: 500;
+    font-size: 0.7rem;
+}
+
+/* Fix browser autofill yellow background */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-moz-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px oklch(var(--b1)) inset !important;
+    box-shadow: 0 0 0px 1000px oklch(var(--b1)) inset !important;
+    -webkit-text-fill-color: oklch(var(--bc)) !important;
+    transition: background-color 5000s ease-in-out 0s;
+}

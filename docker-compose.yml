@@ -1,0 +1,50 @@
+services:
+    app:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        restart: always
+        container_name: hw-app
+        working_dir: /var/www/html
+        ports:
+            - "8081:8080"
+        depends_on:
+            - mysql
+            - redis
+        environment:
+            DB_HOST: mysql
+            REDIS_HOST: redis
+        networks:
+            - HydroWatch
+
+    mysql:
+        image: mysql:8.0
+        container_name: hw-mysql
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: secret
+            MYSQL_ROOT_HOST: "%"
+            MYSQL_DATABASE: hydrowatch
+        volumes:
+            - hydrowatch_mysql_data:/var/lib/mysql
+        ports:
+            - "3312:3306"
+        networks:
+            - HydroWatch
+
+    redis:
+        image: redis:alpine
+        container_name: hw-redis
+        restart: always
+        volumes:
+            - hydrowatch_redis_data:/data
+        networks:
+            - HydroWatch
+
+volumes:
+    hydrowatch_mysql_data:
+    hydrowatch_redis_data:
+
+networks:
+    HydroWatch:
+        driver: bridge
