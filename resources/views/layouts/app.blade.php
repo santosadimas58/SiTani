@@ -11,7 +11,7 @@
     <x-nav sticky class="lg:hidden">
         <x-slot:brand>
             @php
-                $homeUrl = auth()->check() ? (auth()->user()->hasRole('admin') ? '/admin/dashboard' : '/user/dashboard') : '/';
+                $homeUrl = '/dashboard';
             @endphp
             <a href="{{ $homeUrl }}" class="flex items-center gap-2 px-2">
                 <x-icon name="o-beaker" class="w-7 h-7 text-primary" />
@@ -29,7 +29,7 @@
         <x-slot:sidebar drawer="main-drawer" collapsible class="bg-base-100 lg:bg-inherit">
             {{-- BRAND --}}
             @php
-                $homeUrl = auth()->check() ? (auth()->user()->hasRole('admin') ? '/admin/dashboard' : '/user/dashboard') : '/';
+                $homeUrl = '/dashboard';
             @endphp
             <a href="{{ $homeUrl }}" class="flex items-center gap-2 px-5 pt-4 pb-2">
                 <x-icon name="o-beaker" class="w-7 h-7 text-primary" />
