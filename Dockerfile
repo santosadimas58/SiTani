@@ -17,7 +17,7 @@ WORKDIR /var/www/html
 COPY . .
 
 RUN rm -rf node_modules vendor
-RUN composer install --optimize-autoloader --no-interaction
+RUN composer install --optimize-autoloader --no-interaction --no-dev
 RUN npm install && npm run build
 
 RUN mkdir -p storage bootstrap/cache \

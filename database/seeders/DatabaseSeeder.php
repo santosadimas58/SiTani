@@ -16,5 +16,13 @@ class DatabaseSeeder extends Seeder
                 'password' => Hash::make('password'),
             ]
         );
+
+        User::firstOrCreate(
+            ['email' => 'user@hydrowatch.com'],
+            [
+                'name'     => 'Example User',
+                'password' => Hash::make('password'),
+            ]
+        );
     }
 }
