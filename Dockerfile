@@ -45,6 +45,9 @@ RUN printf 'server {\n\
 RUN printf '[unix_http_server]\nfile=/var/run/supervisor.sock\nchmod=0700\n\n[supervisord]\nnodaemon=true\nlogfile=/dev/null\nlogfile_maxbytes=0\npidfile=/var/run/supervisord.pid\n\n[rpcinterface:supervisor]\nsupervisor.rpcinterface_factory=supervisor.rpcinterface:make_main_rpcinterface\n\n[supervisorctl]\nserverurl=unix:///var/run/supervisor.sock\n\n[program:php-fpm]\ncommand=php-fpm -F\nautostart=true\nautorestart=true\nstdout_logfile=/dev/stdout\nstdout_logfile_maxbytes=0\nstderr_logfile=/dev/stderr\nstderr_logfile_maxbytes=0\n\n[program:nginx]\ncommand=nginx -g "daemon off;"\nautostart=true\nautorestart=true\nstdout_logfile=/dev/stdout\nstdout_logfile_maxbytes=0\nstderr_logfile=/dev/stderr\nstderr_logfile_maxbytes=0\n' > /etc/supervisord.conf
 
 RUN printf '#!/bin/sh\n\
+if [ "$#" -gt 0 ]; then\n\
+    exec "$@"\n\
+fi\n\
 chmod -R 777 /var/www/html/storage\n\
 chown -R www-data:www-data /var/www/html/storage\n\
 php /var/www/html/artisan migrate --force\n\

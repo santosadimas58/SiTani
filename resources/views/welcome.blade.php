@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>HydroWatch | Smart Irrigation Monitoring</title>
-    <meta name="description" content="HydroWatch helps growers monitor soil moisture, water flow, pH, temperature, and pump activity from one live dashboard.">
+    <title>Si Tani | Smart Irrigation Monitoring</title>
+    <meta name="description" content="Si Tani helps growers monitor soil moisture, water flow, pH, temperature, and pump activity from one live dashboard.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
@@ -516,7 +516,7 @@
                     </svg>
                 </div>
                 <div class="hw-brand-copy">
-                    <strong>HydroWatch</strong>
+                    <strong>Si Tani</strong>
                     <span>Smart irrigation command center</span>
                 </div>
             </a>
@@ -534,7 +534,7 @@
                     <span class="hw-kicker">Realtime field telemetry</span>
                     <h1 class="hw-title">See water stress before it becomes <span class="hw-title-accent">yield loss.</span></h1>
                     <p class="hw-body">
-                        HydroWatch brings soil moisture, temperature, water pH, flow rate, and pump activity into one operational view so growers can react quickly, automate confidently, and irrigate with less waste.
+                        Si Tani brings soil moisture, temperature, water pH, flow rate, and pump activity into one operational view so growers can react quickly, automate confidently, and irrigate with less waste.
                     </p>
 
                     <div class="hw-cta-row">
@@ -622,7 +622,7 @@
                         <h2 class="hw-section-title">Built for irrigation teams that need operational clarity, not another passive dashboard.</h2>
                     </div>
                     <p class="hw-body" style="max-width: 34ch;">
-                        HydroWatch already centers on nodes, sensor logs, live monitoring, and pump control. This landing page turns that product structure into a clear story.
+                        Si Tani already centers on nodes, sensor logs, live monitoring, and pump control. This landing page turns that product structure into a clear story.
                     </p>
                 </div>
 
@@ -665,7 +665,7 @@
             <section class="hw-section" id="workflow">
                 <div class="hw-timeline">
                     <div class="hw-quote">
-                        <p>HydroWatch is strongest when the field team can observe, decide, and act from the same screen.</p>
+                        <p>Si Tani is strongest when the field team can observe, decide, and act from the same screen.</p>
                         <footer>Designed around node health, water behavior, and pump response.</footer>
                     </div>
 
@@ -693,10 +693,10 @@
         <footer class="hw-footer">
             <div class="hw-footer-inner">
                 <div>
-                    <span class="hw-footer-title">HydroWatch keeps irrigation decisions measurable.</span>
+                    <span class="hw-footer-title">Si Tani keeps irrigation decisions measurable.</span>
                     <span class="hw-caption">Start from the dashboard, monitor every node, and keep water movement intentional.</span>
                 </div>
-                <a href="{{ route('login') }}" class="hw-button hw-button-primary">Launch HydroWatch</a>
+                <a href="{{ route('login') }}" class="hw-button hw-button-primary">Launch Si Tani</a>
             </div>
         </footer>
     </div>

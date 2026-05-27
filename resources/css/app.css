@@ -10,7 +10,7 @@
 }
 
 @plugin "daisyui" {
-    themes: light --default;
+    themes: light --default, dark;
 }
 
 @source "../../vendor/robsontenorio/mary/src/View/Components/**/*.php";
@@ -268,6 +268,35 @@ option {
     background: rgba(255, 255, 255, 0.92);
 }
 
+.hydrowatch-theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7rem;
+    min-width: 2.85rem;
+    min-height: 2.85rem;
+    padding: 0.72rem 0.85rem;
+    border-radius: 0.9rem;
+    color: #14532d;
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(20, 83, 45, 0.08);
+    transition: all 180ms ease;
+}
+
+.hydrowatch-theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.92);
+}
+
+.hydrowatch-sidebar-theme-toggle {
+    width: 100%;
+}
+
+.hydrowatch-dashboard-theme-toggle {
+    min-height: 2.95rem;
+    font-size: 0.84rem;
+    font-weight: 700;
+}
+
 .hydrowatch-sidebar-collapsed {
     width: 5.5rem;
     min-width: 5.5rem;
@@ -283,13 +312,15 @@ option {
 .hydrowatch-sidebar-collapsed .hydrowatch-user-card .mary-hideable,
 .hydrowatch-sidebar-collapsed .hydrowatch-menu .mary-hideable,
 .hydrowatch-sidebar-collapsed .hydrowatch-sidebar-toggle .mary-hideable,
+.hydrowatch-sidebar-collapsed .hydrowatch-theme-toggle .mary-hideable,
 .hydrowatch-sidebar-collapsed .hydrowatch-sidebar-toggle .hidden-when-collapsed {
     display: none !important;
 }
 
 .hydrowatch-sidebar-collapsed .hydrowatch-user-card,
 .hydrowatch-sidebar-collapsed .hydrowatch-menu li > *:not(ul):not(.menu-title):not(details),
-.hydrowatch-sidebar-collapsed .hydrowatch-sidebar-toggle {
+.hydrowatch-sidebar-collapsed .hydrowatch-sidebar-toggle,
+.hydrowatch-sidebar-collapsed .hydrowatch-theme-toggle {
     justify-content: center;
     padding-inline: 0.65rem;
 }
@@ -302,7 +333,8 @@ option {
     gap: 0;
 }
 
-.hydrowatch-sidebar-collapsed .hydrowatch-sidebar-toggle {
+.hydrowatch-sidebar-collapsed .hydrowatch-sidebar-toggle,
+.hydrowatch-sidebar-collapsed .hydrowatch-theme-toggle {
     width: auto;
 }
 
@@ -685,6 +717,183 @@ option {
     color: #14532d;
     font-size: 1.35rem;
     line-height: 1;
+}
+
+.hydrowatch-dark {
+    --p: 0.628 0.191 152.02;
+    --pf: 0.5482 0.1718 152.02;
+    --pc: 0.08 0.02 152.02;
+    --s: 0.62 0.16 168;
+    --b1: 0.145 0.018 238;
+    --b2: 0.19 0.024 238;
+    --b3: 0.245 0.028 238;
+    --bc: 0.92 0.015 238;
+    background:
+        radial-gradient(circle at 12% 8%, rgba(34, 197, 94, 0.16), transparent 28%),
+        radial-gradient(circle at 86% 12%, rgba(20, 184, 166, 0.12), transparent 24%),
+        linear-gradient(135deg, #07120d 0%, #0b1614 44%, #10231a 100%);
+    color: #e5eef1;
+}
+
+.hydrowatch-dark .hydrowatch-topbar,
+.hydrowatch-dark .hydrowatch-sidebar,
+.hydrowatch-dark .hydrowatch-content-panel {
+    background: rgba(12, 22, 20, 0.78) !important;
+    color: #d7f7e2;
+    border-color: rgba(134, 239, 172, 0.12);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.26);
+}
+
+.hydrowatch-dark .hydrowatch-sidebar .menu,
+.hydrowatch-dark .hydrowatch-sidebar [role="menu"],
+.hydrowatch-dark .hydrowatch-brand,
+.hydrowatch-dark .hydrowatch-sidebar-toggle,
+.hydrowatch-dark .hydrowatch-theme-toggle,
+.hydrowatch-dark .hydrowatch-user-logout,
+.hydrowatch-dark .text-green-900 {
+    color: #bbf7d0 !important;
+}
+
+.hydrowatch-dark .hydrowatch-brand-subtitle,
+.hydrowatch-dark .hydrowatch-sidebar > .hydrowatch-brand .hydrowatch-brand-subtitle {
+    color: rgba(187, 247, 208, 0.68);
+}
+
+.hydrowatch-dark .hydrowatch-sidebar > .hydrowatch-brand,
+.hydrowatch-dark .hydrowatch-user-card,
+.hydrowatch-dark .hydrowatch-sidebar-toggle,
+.hydrowatch-dark .hydrowatch-theme-toggle,
+.hydrowatch-dark .hydrowatch-hero-chip,
+.hydrowatch-dark .hydrowatch-command-grid > div {
+    background: rgba(18, 31, 29, 0.78);
+    border-color: rgba(134, 239, 172, 0.11);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.hydrowatch-dark .hydrowatch-sidebar > .hydrowatch-brand {
+    background:
+        radial-gradient(circle at top right, rgba(34, 197, 94, 0.18), transparent 42%),
+        linear-gradient(135deg, rgba(20, 34, 31, 0.96), rgba(13, 27, 23, 0.92));
+}
+
+.hydrowatch-dark .hydrowatch-sidebar-toggle:hover,
+.hydrowatch-dark .hydrowatch-theme-toggle:hover,
+.hydrowatch-dark .hydrowatch-sidebar .menu li > *:not(ul):not(.menu-title):not(details):hover,
+.hydrowatch-dark .hydrowatch-sidebar .menu li > details > summary:hover {
+    background: rgba(28, 46, 41, 0.88);
+    color: #dcfce7;
+}
+
+.hydrowatch-dark .hydrowatch-sidebar .menu li > *:not(ul):not(.menu-title):not(details):active,
+.hydrowatch-dark .hydrowatch-sidebar .menu li > *:not(ul):not(.menu-title):not(details).active,
+.hydrowatch-dark .hydrowatch-sidebar .menu li > details > summary:active {
+    background: rgba(22, 101, 52, 0.32);
+    color: #dcfce7;
+    box-shadow: inset 0 0 0 1px rgba(134, 239, 172, 0.16);
+}
+
+.hydrowatch-dark .hydrowatch-sidebar hr,
+.hydrowatch-dark .hydrowatch-sidebar .menu-separator {
+    border-color: rgba(134, 239, 172, 0.11);
+}
+
+.hydrowatch-dark .hydrowatch-dashboard,
+.hydrowatch-dark .hydrowatch-hero-title,
+.hydrowatch-dark .hydrowatch-section-title,
+.hydrowatch-dark .hydrowatch-stat-value,
+.hydrowatch-dark .hydrowatch-command-title,
+.hydrowatch-dark .text-slate-900,
+.hydrowatch-dark .text-slate-800 {
+    color: #f4f7fb !important;
+}
+
+.hydrowatch-dark .hydrowatch-hero-subtitle,
+.hydrowatch-dark .hydrowatch-section-subtitle,
+.hydrowatch-dark .hydrowatch-command-copy,
+.hydrowatch-dark .hydrowatch-stat-label,
+.hydrowatch-dark .hydrowatch-command-grid span,
+.hydrowatch-dark .hydrowatch-sensor-label,
+.hydrowatch-dark .hydrowatch-empty-copy,
+.hydrowatch-dark .text-slate-600,
+.hydrowatch-dark .text-slate-500,
+.hydrowatch-dark .text-slate-400 {
+    color: #9fb0c2 !important;
+}
+
+.hydrowatch-dark .hydrowatch-eyebrow,
+.hydrowatch-dark .hydrowatch-command-label,
+.hydrowatch-dark .hydrowatch-empty-title,
+.hydrowatch-dark .hydrowatch-command-grid strong {
+    color: #86efac;
+}
+
+.hydrowatch-dark .hydrowatch-hero-chip-soft {
+    color: #bbf7d0;
+    background: rgba(22, 101, 52, 0.24);
+    border-color: rgba(134, 239, 172, 0.14);
+}
+
+.hydrowatch-dark .hydrowatch-card {
+    background: rgba(17, 28, 28, 0.9) !important;
+    border-color: rgba(148, 163, 184, 0.13);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.03), 0 16px 38px rgba(0, 0, 0, 0.24) !important;
+}
+
+.hydrowatch-dark .hydrowatch-card:hover {
+    border-color: rgba(134, 239, 172, 0.22);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04), 0 18px 40px rgba(0, 0, 0, 0.3) !important;
+}
+
+.hydrowatch-dark .hydrowatch-command-card,
+.hydrowatch-dark .hydrowatch-empty-block {
+    background:
+        radial-gradient(circle at top right, rgba(34, 197, 94, 0.16), transparent 34%),
+        linear-gradient(135deg, rgba(17, 29, 27, 0.96), rgba(11, 24, 20, 0.88));
+    border-color: rgba(148, 163, 184, 0.13);
+    box-shadow: 0 16px 38px rgba(0, 0, 0, 0.22);
+}
+
+.hydrowatch-dark .hydrowatch-empty-state {
+    background: rgba(17, 28, 28, 0.82);
+    border-color: rgba(134, 239, 172, 0.18);
+}
+
+.hydrowatch-dark .hydrowatch-empty-icon {
+    background: linear-gradient(135deg, rgba(22, 101, 52, 0.42), rgba(20, 83, 45, 0.32));
+    color: #86efac;
+}
+
+.hydrowatch-dark .hydrowatch-sensor-tile,
+.hydrowatch-dark .bg-green-50\/80,
+.hydrowatch-dark .bg-amber-50,
+.hydrowatch-dark .bg-sky-50,
+.hydrowatch-dark .bg-emerald-50 {
+    background-color: rgba(15, 23, 42, 0.38) !important;
+    border-color: rgba(148, 163, 184, 0.12);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.hydrowatch-dark .divider::before,
+.hydrowatch-dark .divider::after {
+    background-color: rgba(148, 163, 184, 0.16);
+}
+
+.hydrowatch-dark .hydrowatch-table {
+    color: #cbd5e1;
+}
+
+.hydrowatch-dark .hydrowatch-table thead th {
+    background: linear-gradient(180deg, rgba(19, 31, 32, 0.96), rgba(15, 23, 42, 0.96));
+    color: #a8b7c8;
+    border-bottom-color: rgba(148, 163, 184, 0.16);
+}
+
+.hydrowatch-dark .hydrowatch-table tbody td {
+    border-bottom-color: rgba(148, 163, 184, 0.1);
+}
+
+.hydrowatch-dark .hydrowatch-table tbody tr:hover {
+    background-color: rgba(34, 197, 94, 0.07);
 }
 
 @media (min-width: 1024px) {

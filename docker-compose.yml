@@ -11,9 +11,30 @@ services:
         depends_on:
             - mysql
             - redis
+            - mqtt
         environment:
             DB_HOST: mysql
             REDIS_HOST: redis
+            MQTT_HOST: mqtt
+        networks:
+            - HydroWatch
+
+    mqtt-listener:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        restart: always
+        container_name: hw-mqtt-listener
+        working_dir: /var/www/html
+        command: php artisan mqtt:listen
+        depends_on:
+            - app
+            - mqtt
+            - mysql
+        environment:
+            DB_HOST: mysql
+            REDIS_HOST: redis
+            MQTT_HOST: mqtt
         networks:
             - HydroWatch
 
@@ -41,9 +62,22 @@ services:
         networks:
             - HydroWatch
 
+    mqtt:
+        image: eclipse-mosquitto:2
+        container_name: hw-mqtt
+        restart: always
+        volumes:
+            - ./docker/mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
+            - hydrowatch_mqtt_data:/mosquitto/data
+        ports:
+            - "1883:1883"
+        networks:
+            - HydroWatch
+
 volumes:
     hydrowatch_mysql_data:
     hydrowatch_redis_data:
+    hydrowatch_mqtt_data:
 
 networks:
     HydroWatch:

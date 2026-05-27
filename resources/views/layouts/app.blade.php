@@ -9,7 +9,19 @@
 </head>
 <body
     x-data="{
+        darkTheme: JSON.parse(localStorage.getItem('hydrowatch-dark-theme') ?? 'false'),
         sidebarCollapsed: JSON.parse(localStorage.getItem('hydrowatch-sidebar-collapsed') ?? 'false'),
+        init() {
+            this.syncTheme();
+        },
+        syncTheme() {
+            document.documentElement.dataset.theme = this.darkTheme ? 'dark' : 'light';
+        },
+        toggleTheme() {
+            this.darkTheme = !this.darkTheme;
+            localStorage.setItem('hydrowatch-dark-theme', JSON.stringify(this.darkTheme));
+            this.syncTheme();
+        },
         setSidebarCollapsed(value) {
             this.sidebarCollapsed = value;
             localStorage.setItem('hydrowatch-sidebar-collapsed', JSON.stringify(value));
@@ -19,6 +31,7 @@
         }
     }"
     class="hydrowatch-app min-h-screen font-sans antialiased"
+    :class="{ 'hydrowatch-dark': darkTheme }"
 >
     <x-nav sticky class="hydrowatch-topbar lg:hidden">
         <x-slot:brand>
@@ -43,6 +56,15 @@
             <label for="main-drawer" class="lg:hidden me-3">
                 <x-icon name="o-bars-3" class="cursor-pointer text-green-900" />
             </label>
+            <button
+                type="button"
+                class="hydrowatch-theme-toggle"
+                @click="toggleTheme()"
+                x-bind:aria-label="darkTheme ? 'Gunakan tema terang' : 'Gunakan tema gelap'"
+            >
+                <x-icon name="o-sun" class="w-5 h-5" x-show="darkTheme" />
+                <x-icon name="o-moon" class="w-5 h-5" x-show="!darkTheme" />
+            </button>
         </x-slot:actions>
     </x-nav>
 
@@ -78,6 +100,17 @@
                             <span class="hydrowatch-brand-subtitle">Smart irrigation command</span>
                         </span>
                     </a>
+
+                    <button
+                        type="button"
+                        class="hydrowatch-theme-toggle hydrowatch-sidebar-theme-toggle"
+                        @click="toggleTheme()"
+                        x-bind:aria-label="darkTheme ? 'Gunakan tema terang' : 'Gunakan tema gelap'"
+                    >
+                        <x-icon name="o-sun" class="w-5 h-5" x-show="darkTheme" />
+                        <x-icon name="o-moon" class="w-5 h-5" x-show="!darkTheme" />
+                        <span class="mary-hideable" x-text="darkTheme ? 'Tema terang' : 'Tema gelap'"></span>
+                    </button>
 
                     <x-menu activate-by-route class="hydrowatch-menu">
                         @if($user = auth()->user())

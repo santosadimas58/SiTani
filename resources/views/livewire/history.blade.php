@@ -1,17 +1,28 @@
 <div>
     <x-header title="Riwayat Sensor" subtitle="Log data sensor semua node" separator />
 
-    <div class="flex flex-wrap gap-3 mb-4">
-        <x-select
-            placeholder="Semua Node"
-            wire:model.live="filterNode"
-            :options="$nodes->map(fn($n) => ['id' => $n->id, 'name' => $n->nama_node])->toArray()"
-            class="w-48"
-        />
-        <x-input type="date" wire:model.live="filterDate" class="w-48" />
-        @if($filterNode || $filterDate)
-        <x-button label="Reset" wire:click="$set('filterNode', ''); $set('filterDate', '')" class="btn-ghost btn-sm" icon="o-x-mark" />
-        @endif
+    <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+        <div class="flex flex-wrap gap-3">
+            <x-select
+                placeholder="Semua Node"
+                wire:model.live="filterNode"
+                :options="$nodes->map(fn($n) => ['id' => $n->id, 'name' => $n->nama_node])->toArray()"
+                class="w-48"
+            />
+            <x-input type="date" wire:model.live="filterDate" class="w-48" />
+            @if($filterNode || $filterDate)
+            <x-button label="Reset" wire:click="$set('filterNode', ''); $set('filterDate', '')" class="btn-ghost btn-sm" icon="o-x-mark" />
+            @endif
+        </div>
+
+        <a
+            href="{{ route('history.export-pdf', array_filter(['node_id' => $filterNode, 'date' => $filterDate])) }}"
+            class="btn btn-primary btn-sm"
+            target="_blank"
+        >
+            <x-icon name="o-document-arrow-down" class="w-4 h-4" />
+            Export PDF
+        </a>
     </div>
 
     <x-card>

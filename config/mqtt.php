@@ -1,0 +1,11 @@
+<?php
+
+return [
+    'host' => env('MQTT_HOST', '127.0.0.1'),
+    'port' => (int) env('MQTT_PORT', 1883),
+    'username' => env('MQTT_USERNAME'),
+    'password' => env('MQTT_PASSWORD'),
+    'client_id' => env('MQTT_CLIENT_ID', 'hydrowatch-web'),
+    'base_topic' => trim(env('MQTT_BASE_TOPIC', 'hydrowatch'), '/'),
+    'qos' => (int) env('MQTT_QOS', 0),
+];

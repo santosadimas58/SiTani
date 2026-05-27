@@ -13,6 +13,31 @@
             <div class="hydrowatch-hero-chip hydrowatch-hero-chip-soft">
                 {{ $activeNodes }}/{{ $totalNodes }} node aktif
             </div>
+            <button
+                type="button"
+                class="hydrowatch-theme-toggle hydrowatch-dashboard-theme-toggle"
+                x-data="{
+                    darkTheme: JSON.parse(localStorage.getItem('hydrowatch-dark-theme') ?? 'false'),
+                    init() {
+                        this.syncTheme();
+                    },
+                    syncTheme() {
+                        document.documentElement.dataset.theme = this.darkTheme ? 'dark' : 'light';
+                        document.body.classList.toggle('hydrowatch-dark', this.darkTheme);
+                    },
+                    toggleTheme() {
+                        this.darkTheme = !this.darkTheme;
+                        localStorage.setItem('hydrowatch-dark-theme', JSON.stringify(this.darkTheme));
+                        this.syncTheme();
+                    }
+                }"
+                @click="toggleTheme()"
+                x-bind:aria-label="darkTheme ? 'Gunakan tema terang' : 'Gunakan tema gelap'"
+            >
+                <x-icon name="o-sun" class="w-5 h-5" x-show="darkTheme" />
+                <x-icon name="o-moon" class="w-5 h-5" x-show="!darkTheme" />
+                <span x-text="darkTheme ? 'Terang' : 'Gelap'"></span>
+            </button>
             <a href="/monitoring" class="btn btn-primary hydrowatch-primary-button">Buka Monitoring</a>
         </div>
     </section>
