@@ -64,7 +64,7 @@
 </head>
 <body>
     <h1>Riwayat Sensor</h1>
-    <div class="muted">Laporan data sensor HydroWatch</div>
+    <div class="muted">Laporan data sensor SiTani</div>
 
     <div class="meta">
         <table>
@@ -88,10 +88,9 @@
             <tr>
                 <th>Waktu</th>
                 <th>Node</th>
-                <th>Kelembaban</th>
+                <th>Kelembaban Tanah</th>
                 <th>Suhu</th>
-                <th>pH</th>
-                <th>Debit</th>
+                <th>Hum. Udara</th>
             </tr>
         </thead>
         <tbody>
@@ -101,12 +100,11 @@
                 <td>{{ $reading->node->nama_node ?? '-' }}</td>
                 <td>{{ $reading->kelembaban_tanah ?? '-' }}%</td>
                 <td>{{ $reading->suhu ?? '-' }} C</td>
-                <td>{{ $reading->ph_air ?? '-' }}</td>
-                <td>{{ $reading->debit_air ?? '-' }} L/m</td>
+                <td>{{ $reading->kelembaban_udara ?? '-' }}%</td>
             </tr>
             @empty
             <tr>
-                <td colspan="6" class="text-center">Belum ada data</td>
+                <td colspan="5" class="text-center">Belum ada data</td>
             </tr>
             @endforelse
         </tbody>

@@ -1,4 +1,4 @@
-# HydroWatch Hardware API
+# SiTani Hardware API
 
 Base URL lokal Docker:
 
@@ -54,8 +54,10 @@ Nama field alternatif juga diterima agar lebih mudah disesuaikan dengan firmware
 ```json
 {
   "node_code": "NODE-01",
-  "soil_moisture": 72.1,
+  "soil_1": 72.1,
+  "soil_2": 68.4,
   "temperature": 28.2,
+  "air_humidity": 81.5,
   "ph": 6.9,
   "flow": 12.3
 }

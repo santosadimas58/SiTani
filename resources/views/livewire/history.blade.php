@@ -30,7 +30,7 @@
             <table class="table table-zebra w-full text-sm">
                 <thead>
                     <tr>
-                        <th>Waktu</th><th>Node</th><th>Kelembaban</th><th>Suhu</th><th>pH</th><th>Debit</th>
+                        <th>Waktu</th><th>Node</th><th>Kelembaban Tanah</th><th>Suhu</th><th>Hum. Udara</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -40,11 +40,10 @@
                         <td class="font-medium">{{ $r->node->nama_node ?? '-' }}</td>
                         <td>{{ $r->kelembaban_tanah ?? '-' }}%</td>
                         <td>{{ $r->suhu ?? '-' }}°C</td>
-                        <td>{{ $r->ph_air ?? '-' }}</td>
-                        <td>{{ $r->debit_air ?? '-' }} L/m</td>
+                        <td>{{ $r->kelembaban_udara ?? '-' }}%</td>
                     </tr>
                     @empty
-                    <tr><td colspan="6" class="text-center py-6 opacity-40">Belum ada data</td></tr>
+                    <tr><td colspan="5" class="text-center py-6 opacity-40">Belum ada data</td></tr>
                     @endforelse
                 </tbody>
             </table>

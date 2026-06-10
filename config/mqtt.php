@@ -5,7 +5,7 @@ return [
     'port' => (int) env('MQTT_PORT', 1883),
     'username' => env('MQTT_USERNAME'),
     'password' => env('MQTT_PASSWORD'),
-    'client_id' => env('MQTT_CLIENT_ID', 'hydrowatch-web'),
-    'base_topic' => trim(env('MQTT_BASE_TOPIC', 'hydrowatch'), '/'),
+    'client_id' => env('MQTT_CLIENT_ID', 'sitani-web'),
+    'base_topic' => trim(env('MQTT_BASE_TOPIC', 'sitani'), '/'),
     'qos' => (int) env('MQTT_QOS', 0),
 ];

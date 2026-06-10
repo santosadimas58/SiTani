@@ -29,7 +29,7 @@ class MqttListenCommand extends Command
         $topic = $broker->sensorTopicFilter();
 
         $this->info('Connecting to MQTT broker '.config('mqtt.host').':'.config('mqtt.port'));
-        $mqtt->connect($broker->connectionSettings(), true);
+        $mqtt->connect($broker->connectionSettings(true), false);
 
         $this->info("Subscribing to {$topic}");
         $mqtt->subscribe($topic, function (string $topic, string $message) use ($ingestor, $broker, $mqtt) {

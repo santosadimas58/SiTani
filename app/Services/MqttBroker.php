@@ -43,7 +43,7 @@ class MqttBroker
         return config('mqtt.base_topic').'/'.$kodeNode.'/pump';
     }
 
-    public function connectionSettings(): ConnectionSettings
+    public function connectionSettings(bool $reconnectAutomatically = false): ConnectionSettings
     {
         return (new ConnectionSettings)
             ->setUsername(config('mqtt.username'))
@@ -51,6 +51,6 @@ class MqttBroker
             ->setConnectTimeout(2)
             ->setSocketTimeout(2)
             ->setKeepAliveInterval(30)
-            ->setReconnectAutomatically(true);
+            ->setReconnectAutomatically($reconnectAutomatically);
     }
 }

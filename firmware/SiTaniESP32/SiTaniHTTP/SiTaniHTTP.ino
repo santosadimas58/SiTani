@@ -2,7 +2,7 @@
 #include <ESP8266HTTPClient.h>
 
 /*
-  HydroWatch Wemos D1 mini firmware
+  SiTani Wemos D1 mini firmware
 
   Kirim data sensor ke Laravel:
     POST http://10.120.37.81:8081/api/sensor

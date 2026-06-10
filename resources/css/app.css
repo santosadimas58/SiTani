@@ -60,7 +60,7 @@ option {
     --bc: 0.2 0.05 152.02;
 }
 
-.hydrowatch-app {
+.sitani-app {
     background:
         radial-gradient(circle at 12% 8%, rgba(34, 197, 94, 0.16), transparent 28%),
         radial-gradient(circle at 84% 18%, rgba(20, 184, 166, 0.11), transparent 24%),
@@ -68,7 +68,7 @@ option {
     color: #0f172a;
 }
 
-.hydrowatch-topbar {
+.sitani-topbar {
     background: rgba(255, 255, 255, 0.52);
     color: #14532d;
     backdrop-filter: blur(18px);
@@ -76,7 +76,7 @@ option {
     box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
 }
 
-.hydrowatch-sidebar {
+.sitani-sidebar {
     background: rgba(255, 255, 255, 0.72) !important;
     color: #14532d;
     backdrop-filter: blur(10px);
@@ -94,32 +94,32 @@ option {
     transition: width 180ms ease, min-width 180ms ease, max-width 180ms ease, padding 180ms ease;
 }
 
-.hydrowatch-main {
+.sitani-main {
     overflow-x: clip;
 }
 
-.hydrowatch-drawer {
+.sitani-drawer {
     min-height: 100vh;
 }
 
-.hydrowatch-drawer-side {
+.sitani-drawer-side {
     z-index: 30;
 }
 
-.hydrowatch-main-content {
+.sitani-main-content {
     min-width: 0;
 }
 
-.hydrowatch-main-content-collapsed {
+.sitani-main-content-collapsed {
     min-width: 0;
 }
 
-.hydrowatch-sidebar .menu,
-.hydrowatch-sidebar [role="menu"] {
+.sitani-sidebar .menu,
+.sitani-sidebar [role="menu"] {
     color: #14532d;
 }
 
-.hydrowatch-brand {
+.sitani-brand {
     display: flex;
     align-items: center;
     gap: 0.9rem;
@@ -129,7 +129,7 @@ option {
     width: 100%;
 }
 
-.hydrowatch-brand-mark {
+.sitani-brand-mark {
     width: 2.6rem;
     height: 2.6rem;
     display: inline-flex;
@@ -144,27 +144,27 @@ option {
     flex-shrink: 0;
 }
 
-.hydrowatch-brand-title,
-.hydrowatch-brand-subtitle {
+.sitani-brand-title,
+.sitani-brand-subtitle {
     display: block;
     overflow-wrap: anywhere;
 }
 
-.hydrowatch-brand-title {
+.sitani-brand-title {
     font-size: 1rem;
     font-weight: 800;
     line-height: 1.1;
     letter-spacing: -0.02em;
 }
 
-.hydrowatch-brand-subtitle {
+.sitani-brand-subtitle {
     font-size: 0.74rem;
     color: rgba(20, 83, 45, 0.7);
     margin-top: 0.1rem;
     line-height: 1.45;
 }
 
-.hydrowatch-user-card {
+.sitani-user-card {
     margin: 0.25rem 0 !important;
     padding: 0.85rem !important;
     border-radius: 1rem !important;
@@ -173,27 +173,27 @@ option {
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45);
 }
 
-.hydrowatch-user-logout {
+.sitani-user-logout {
     color: #166534 !important;
 }
 
-.hydrowatch-sidebar .menu li > *:not(ul):not(.menu-title):not(details):active,
-.hydrowatch-sidebar .menu li > *:not(ul):not(.menu-title):not(details).active,
-.hydrowatch-sidebar .menu li > details > summary:active {
+.sitani-sidebar .menu li > *:not(ul):not(.menu-title):not(details):active,
+.sitani-sidebar .menu li > *:not(ul):not(.menu-title):not(details).active,
+.sitani-sidebar .menu li > details > summary:active {
     background: #dcfce7;
     color: #166534;
     border-radius: 10px;
     box-shadow: inset 0 0 0 1px rgba(22, 163, 74, 0.12);
 }
 
-.hydrowatch-sidebar .menu li > *:not(ul):not(.menu-title):not(details):hover,
-.hydrowatch-sidebar .menu li > details > summary:hover {
+.sitani-sidebar .menu li > *:not(ul):not(.menu-title):not(details):hover,
+.sitani-sidebar .menu li > details > summary:hover {
     background-color: rgba(255, 255, 255, 0.7);
     color: #14532d;
 }
 
-.hydrowatch-sidebar .menu li > *:not(ul):not(.menu-title):not(details),
-.hydrowatch-sidebar .menu li > details > summary {
+.sitani-sidebar .menu li > *:not(ul):not(.menu-title):not(details),
+.sitani-sidebar .menu li > details > summary {
     border-radius: 0.85rem;
     margin: 0.12rem 0;
     min-height: 2.65rem;
@@ -201,17 +201,17 @@ option {
     transition: all 180ms ease;
 }
 
-.hydrowatch-sidebar hr,
-.hydrowatch-sidebar .menu-separator {
+.sitani-sidebar hr,
+.sitani-sidebar .menu-separator {
     border-color: rgba(20, 83, 45, 0.1);
 }
 
-.hydrowatch-menu {
+.sitani-menu {
     min-width: 0;
     flex: 1;
 }
 
-.hydrowatch-sidebar > .hydrowatch-brand {
+.sitani-sidebar > .sitani-brand {
     align-items: center;
     gap: 0.95rem;
     padding: 1rem 1rem 1.05rem !important;
@@ -223,33 +223,33 @@ option {
     box-shadow: 0 14px 30px rgba(15, 23, 42, 0.06);
 }
 
-.hydrowatch-sidebar > .hydrowatch-brand .hydrowatch-brand-mark {
+.sitani-sidebar > .sitani-brand .sitani-brand-mark {
     width: 2.7rem;
     height: 2.7rem;
     border-radius: 1rem;
     box-shadow: 0 14px 24px rgba(22, 163, 74, 0.2);
 }
 
-.hydrowatch-sidebar > .hydrowatch-brand .hydrowatch-brand-title {
+.sitani-sidebar > .sitani-brand .sitani-brand-title {
     font-size: 1.2rem;
 }
 
-.hydrowatch-sidebar > .hydrowatch-brand .hydrowatch-brand-subtitle {
+.sitani-sidebar > .sitani-brand .sitani-brand-subtitle {
     margin-top: 0.18rem;
     font-size: 0.78rem;
     color: rgba(20, 83, 45, 0.68);
 }
 
-.hydrowatch-sidebar .mary-hideable,
-.hydrowatch-sidebar .hidden-when-collapsed {
+.sitani-sidebar .mary-hideable,
+.sitani-sidebar .hidden-when-collapsed {
     display: block !important;
 }
 
-.hydrowatch-sidebar .display-when-collapsed {
+.sitani-sidebar .display-when-collapsed {
     display: none !important;
 }
 
-.hydrowatch-sidebar-toggle {
+.sitani-sidebar-toggle {
     display: inline-flex;
     align-items: center;
     gap: 0.7rem;
@@ -264,11 +264,11 @@ option {
     transition: all 180ms ease;
 }
 
-.hydrowatch-sidebar-toggle:hover {
+.sitani-sidebar-toggle:hover {
     background: rgba(255, 255, 255, 0.92);
 }
 
-.hydrowatch-theme-toggle {
+.sitani-theme-toggle {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -283,69 +283,69 @@ option {
     transition: all 180ms ease;
 }
 
-.hydrowatch-theme-toggle:hover {
+.sitani-theme-toggle:hover {
     background: rgba(255, 255, 255, 0.92);
 }
 
-.hydrowatch-sidebar-theme-toggle {
+.sitani-sidebar-theme-toggle {
     width: 100%;
 }
 
-.hydrowatch-dashboard-theme-toggle {
+.sitani-dashboard-theme-toggle {
     min-height: 2.95rem;
     font-size: 0.84rem;
     font-weight: 700;
 }
 
-.hydrowatch-sidebar-collapsed {
+.sitani-sidebar-collapsed {
     width: 5.5rem;
     min-width: 5.5rem;
     max-width: 5.5rem;
     padding-inline: 0.75rem;
 }
 
-.hydrowatch-sidebar-collapsed .hydrowatch-brand {
+.sitani-sidebar-collapsed .sitani-brand {
     justify-content: center;
 }
 
-.hydrowatch-sidebar-collapsed .hydrowatch-brand > span:last-child,
-.hydrowatch-sidebar-collapsed .hydrowatch-user-card .mary-hideable,
-.hydrowatch-sidebar-collapsed .hydrowatch-menu .mary-hideable,
-.hydrowatch-sidebar-collapsed .hydrowatch-sidebar-toggle .mary-hideable,
-.hydrowatch-sidebar-collapsed .hydrowatch-theme-toggle .mary-hideable,
-.hydrowatch-sidebar-collapsed .hydrowatch-sidebar-toggle .hidden-when-collapsed {
+.sitani-sidebar-collapsed .sitani-brand > span:last-child,
+.sitani-sidebar-collapsed .sitani-user-card .mary-hideable,
+.sitani-sidebar-collapsed .sitani-menu .mary-hideable,
+.sitani-sidebar-collapsed .sitani-sidebar-toggle .mary-hideable,
+.sitani-sidebar-collapsed .sitani-theme-toggle .mary-hideable,
+.sitani-sidebar-collapsed .sitani-sidebar-toggle .hidden-when-collapsed {
     display: none !important;
 }
 
-.hydrowatch-sidebar-collapsed .hydrowatch-user-card,
-.hydrowatch-sidebar-collapsed .hydrowatch-menu li > *:not(ul):not(.menu-title):not(details),
-.hydrowatch-sidebar-collapsed .hydrowatch-sidebar-toggle,
-.hydrowatch-sidebar-collapsed .hydrowatch-theme-toggle {
+.sitani-sidebar-collapsed .sitani-user-card,
+.sitani-sidebar-collapsed .sitani-menu li > *:not(ul):not(.menu-title):not(details),
+.sitani-sidebar-collapsed .sitani-sidebar-toggle,
+.sitani-sidebar-collapsed .sitani-theme-toggle {
     justify-content: center;
     padding-inline: 0.65rem;
 }
 
-.hydrowatch-sidebar-collapsed .hydrowatch-user-card {
+.sitani-sidebar-collapsed .sitani-user-card {
     padding-block: 0.75rem !important;
 }
 
-.hydrowatch-sidebar-collapsed .hydrowatch-menu li > *:not(ul):not(.menu-title):not(details) {
+.sitani-sidebar-collapsed .sitani-menu li > *:not(ul):not(.menu-title):not(details) {
     gap: 0;
 }
 
-.hydrowatch-sidebar-collapsed .hydrowatch-sidebar-toggle,
-.hydrowatch-sidebar-collapsed .hydrowatch-theme-toggle {
+.sitani-sidebar-collapsed .sitani-sidebar-toggle,
+.sitani-sidebar-collapsed .sitani-theme-toggle {
     width: auto;
 }
 
-.hydrowatch-content-shell {
+.sitani-content-shell {
     width: 100%;
     max-width: 1320px;
     margin: 0 auto;
     padding: 1rem;
 }
 
-.hydrowatch-content-panel {
+.sitani-content-panel {
     background: rgba(255, 255, 255, 0.66);
     border-radius: 1.65rem;
     padding: 1.4rem;
@@ -355,9 +355,9 @@ option {
     min-height: calc(100vh - 2rem);
 }
 
-.hydrowatch-primary-button,
-.hydrowatch-content-panel .btn-primary,
-.hydrowatch-content-panel .btn-success {
+.sitani-primary-button,
+.sitani-content-panel .btn-primary,
+.sitani-content-panel .btn-success {
     background:
         linear-gradient(180deg, rgba(255, 255, 255, 0.12), transparent),
         #16a34a;
@@ -368,20 +368,20 @@ option {
     transition: all 180ms ease;
 }
 
-.hydrowatch-primary-button:hover,
-.hydrowatch-content-panel .btn-primary:hover,
-.hydrowatch-content-panel .btn-success:hover {
+.sitani-primary-button:hover,
+.sitani-content-panel .btn-primary:hover,
+.sitani-content-panel .btn-success:hover {
     background-color: #15803d;
     border-color: #15803d;
     transform: translateY(-1px);
     box-shadow: 0 16px 28px rgba(21, 128, 61, 0.2);
 }
 
-.hydrowatch-dashboard {
+.sitani-dashboard {
     color: #0f172a;
 }
 
-.hydrowatch-hero {
+.sitani-hero {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
@@ -389,7 +389,7 @@ option {
     padding: 0.15rem 0;
 }
 
-.hydrowatch-eyebrow {
+.sitani-eyebrow {
     margin: 0 0 0.5rem;
     color: #15803d;
     font-size: 0.78rem;
@@ -397,7 +397,7 @@ option {
     letter-spacing: 0.01em;
 }
 
-.hydrowatch-hero-title {
+.sitani-hero-title {
     margin: 0;
     color: #0f172a;
     font-size: clamp(2rem, 3vw, 2.85rem);
@@ -406,7 +406,7 @@ option {
     letter-spacing: -0.045em;
 }
 
-.hydrowatch-hero-subtitle {
+.sitani-hero-subtitle {
     max-width: 46rem;
     margin: 0.75rem 0 0;
     color: #4b5563;
@@ -414,7 +414,7 @@ option {
     line-height: 1.65;
 }
 
-.hydrowatch-hero-meta {
+.sitani-hero-meta {
     display: flex;
     align-items: center;
     gap: 0.75rem;
@@ -422,7 +422,7 @@ option {
     justify-content: flex-end;
 }
 
-.hydrowatch-hero-chip {
+.sitani-hero-chip {
     display: inline-flex;
     align-items: center;
     gap: 0.55rem;
@@ -436,13 +436,13 @@ option {
     box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
 }
 
-.hydrowatch-hero-chip-soft {
+.sitani-hero-chip-soft {
     color: #166534;
     background: rgba(236, 253, 243, 0.82);
     border-color: rgba(22, 163, 74, 0.12);
 }
 
-.hydrowatch-live-dot {
+.sitani-live-dot {
     width: 0.55rem;
     height: 0.55rem;
     border-radius: 999px;
@@ -450,14 +450,14 @@ option {
     box-shadow: 0 0 0 0.3rem rgba(34, 197, 94, 0.12);
 }
 
-.hydrowatch-section-head {
+.sitani-section-head {
     display: flex;
     align-items: end;
     justify-content: space-between;
     gap: 1rem;
 }
 
-.hydrowatch-section-title {
+.sitani-section-title {
     margin: 0;
     color: #0f172a;
     font-size: 1.25rem;
@@ -465,14 +465,14 @@ option {
     letter-spacing: -0.02em;
 }
 
-.hydrowatch-section-subtitle {
+.sitani-section-subtitle {
     margin: 0.45rem 0 0;
     color: #64748b;
     font-size: 0.95rem;
     line-height: 1.65;
 }
 
-.hydrowatch-card {
+.sitani-card {
     border-radius: 1.05rem !important;
     background: rgba(255, 255, 255, 0.92) !important;
     box-shadow: 0 1px 0 rgba(15, 23, 42, 0.04), 0 12px 32px rgba(15, 23, 42, 0.05) !important;
@@ -480,20 +480,20 @@ option {
     transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
 }
 
-.hydrowatch-card:hover {
+.sitani-card:hover {
     transform: translateY(-4px);
     border-color: rgba(22, 163, 74, 0.18);
     box-shadow: 0 1px 0 rgba(15, 23, 42, 0.04), 0 18px 40px rgba(15, 23, 42, 0.07) !important;
     transition: 0.2s ease;
 }
 
-.hydrowatch-stat-card {
+.sitani-stat-card {
     padding: 1.1rem !important;
     position: relative;
     overflow: hidden;
 }
 
-.hydrowatch-stat-card::after {
+.sitani-stat-card::after {
     content: "";
     position: absolute;
     inset: auto 0 0;
@@ -502,7 +502,7 @@ option {
     opacity: 0.7;
 }
 
-.hydrowatch-stat-icon {
+.sitani-stat-icon {
     width: 2.75rem;
     height: 2.75rem;
     display: inline-flex;
@@ -512,7 +512,7 @@ option {
     box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.04);
 }
 
-.hydrowatch-stat-value {
+.sitani-stat-value {
     margin: 0.55rem 0 0;
     color: #0f172a;
     font-size: 28px;
@@ -521,7 +521,7 @@ option {
     letter-spacing: -0.03em;
 }
 
-.hydrowatch-stat-label {
+.sitani-stat-label {
     margin: 0;
     color: #64748b;
     font-size: 0.78rem;
@@ -530,24 +530,24 @@ option {
     letter-spacing: 0.055em;
 }
 
-.hydrowatch-stat-note {
+.sitani-stat-note {
     margin: 0.45rem 0 0;
     color: #94a3b8;
     font-size: 0.82rem;
     font-weight: 500;
 }
 
-.hydrowatch-node-card {
+.sitani-node-card {
     padding: 1.2rem !important;
 }
 
-.hydrowatch-status-badge {
+.sitani-status-badge {
     border-radius: 999px !important;
     font-weight: 700 !important;
     padding-inline: 0.8rem !important;
 }
 
-.hydrowatch-sensor-tile {
+.sitani-sensor-tile {
     border-radius: 0.85rem;
     padding: 0.85rem 0.75rem;
     text-align: center;
@@ -555,16 +555,16 @@ option {
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65);
 }
 
-.hydrowatch-sensor-label {
+.sitani-sensor-label {
     margin: 0 0 0.3rem;
     color: #64748b;
     font-size: 0.75rem;
     font-weight: 600;
 }
 
-.hydrowatch-empty-state,
-.hydrowatch-empty-block,
-.hydrowatch-empty-inline {
+.sitani-empty-state,
+.sitani-empty-block,
+.sitani-empty-inline {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -572,25 +572,25 @@ option {
     gap: 0.75rem;
 }
 
-.hydrowatch-empty-state {
+.sitani-empty-state {
     padding: 3rem 1.25rem;
     background: rgba(255, 255, 255, 0.82);
     border: 1px dashed rgba(20, 83, 45, 0.14);
     border-radius: 1.5rem;
 }
 
-.hydrowatch-empty-block {
+.sitani-empty-block {
     padding: 1.4rem 1rem;
     background: linear-gradient(180deg, #f8fffa 0%, #f2fbf5 100%);
     border: 1px dashed rgba(20, 83, 45, 0.12);
     border-radius: 1.25rem;
 }
 
-.hydrowatch-empty-inline {
+.sitani-empty-inline {
     padding: 1rem 0;
 }
 
-.hydrowatch-empty-icon {
+.sitani-empty-icon {
     width: 3.6rem;
     height: 3.6rem;
     display: inline-flex;
@@ -601,14 +601,14 @@ option {
     color: #16a34a;
 }
 
-.hydrowatch-empty-title {
+.sitani-empty-title {
     margin: 0;
     color: #14532d;
     font-size: 1rem;
     font-weight: 700;
 }
 
-.hydrowatch-empty-copy {
+.sitani-empty-copy {
     max-width: 32rem;
     margin: 0;
     color: #64748b;
@@ -616,16 +616,16 @@ option {
     line-height: 1.65;
 }
 
-.hydrowatch-table-card {
+.sitani-table-card {
     padding: 0 !important;
     overflow: hidden;
 }
 
-.hydrowatch-table {
+.sitani-table {
     color: #334155;
 }
 
-.hydrowatch-table thead th {
+.sitani-table thead th {
     background: linear-gradient(180deg, #fbfdfc, #f8fafc);
     color: #475569;
     font-size: 0.72rem;
@@ -636,20 +636,20 @@ option {
     padding: 1rem 1.2rem;
 }
 
-.hydrowatch-table tbody td {
+.sitani-table tbody td {
     padding: 1rem 1.2rem;
     border-bottom: 1px solid #f1f5f9;
 }
 
-.hydrowatch-table tbody tr {
+.sitani-table tbody tr {
     transition: background-color 160ms ease;
 }
 
-.hydrowatch-table tbody tr:hover {
+.sitani-table tbody tr:hover {
     background-color: #fbfefc;
 }
 
-.hydrowatch-command-card {
+.sitani-command-card {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
     gap: 1.25rem;
@@ -663,7 +663,7 @@ option {
     box-shadow: 0 1px 0 rgba(15, 23, 42, 0.04), 0 16px 38px rgba(15, 23, 42, 0.05);
 }
 
-.hydrowatch-command-label {
+.sitani-command-label {
     margin: 0 0 0.45rem;
     color: #16a34a;
     font-size: 0.75rem;
@@ -672,7 +672,7 @@ option {
     text-transform: uppercase;
 }
 
-.hydrowatch-command-title {
+.sitani-command-title {
     margin: 0;
     color: #0f172a;
     font-size: 1.1rem;
@@ -680,7 +680,7 @@ option {
     letter-spacing: -0.02em;
 }
 
-.hydrowatch-command-copy {
+.sitani-command-copy {
     max-width: 44rem;
     margin: 0.45rem 0 0;
     color: #64748b;
@@ -688,38 +688,38 @@ option {
     line-height: 1.6;
 }
 
-.hydrowatch-command-grid {
+.sitani-command-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(8rem, 1fr));
     gap: 0.75rem;
 }
 
-.hydrowatch-command-grid > div {
+.sitani-command-grid > div {
     padding: 0.9rem 1rem;
     border-radius: 1rem;
     background: rgba(255, 255, 255, 0.74);
     border: 1px solid rgba(15, 23, 42, 0.06);
 }
 
-.hydrowatch-command-grid span,
-.hydrowatch-command-grid strong {
+.sitani-command-grid span,
+.sitani-command-grid strong {
     display: block;
 }
 
-.hydrowatch-command-grid span {
+.sitani-command-grid span {
     color: #64748b;
     font-size: 0.78rem;
     font-weight: 650;
 }
 
-.hydrowatch-command-grid strong {
+.sitani-command-grid strong {
     margin-top: 0.35rem;
     color: #14532d;
     font-size: 1.35rem;
     line-height: 1;
 }
 
-.hydrowatch-dark {
+.sitani-dark {
     --p: 0.628 0.191 152.02;
     --pf: 0.5482 0.1718 152.02;
     --pc: 0.08 0.02 152.02;
@@ -735,117 +735,117 @@ option {
     color: #e5eef1;
 }
 
-.hydrowatch-dark .hydrowatch-topbar,
-.hydrowatch-dark .hydrowatch-sidebar,
-.hydrowatch-dark .hydrowatch-content-panel {
+.sitani-dark .sitani-topbar,
+.sitani-dark .sitani-sidebar,
+.sitani-dark .sitani-content-panel {
     background: rgba(12, 22, 20, 0.78) !important;
     color: #d7f7e2;
     border-color: rgba(134, 239, 172, 0.12);
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.26);
 }
 
-.hydrowatch-dark .hydrowatch-sidebar .menu,
-.hydrowatch-dark .hydrowatch-sidebar [role="menu"],
-.hydrowatch-dark .hydrowatch-brand,
-.hydrowatch-dark .hydrowatch-sidebar-toggle,
-.hydrowatch-dark .hydrowatch-theme-toggle,
-.hydrowatch-dark .hydrowatch-user-logout,
-.hydrowatch-dark .text-green-900 {
+.sitani-dark .sitani-sidebar .menu,
+.sitani-dark .sitani-sidebar [role="menu"],
+.sitani-dark .sitani-brand,
+.sitani-dark .sitani-sidebar-toggle,
+.sitani-dark .sitani-theme-toggle,
+.sitani-dark .sitani-user-logout,
+.sitani-dark .text-green-900 {
     color: #bbf7d0 !important;
 }
 
-.hydrowatch-dark .hydrowatch-brand-subtitle,
-.hydrowatch-dark .hydrowatch-sidebar > .hydrowatch-brand .hydrowatch-brand-subtitle {
+.sitani-dark .sitani-brand-subtitle,
+.sitani-dark .sitani-sidebar > .sitani-brand .sitani-brand-subtitle {
     color: rgba(187, 247, 208, 0.68);
 }
 
-.hydrowatch-dark .hydrowatch-sidebar > .hydrowatch-brand,
-.hydrowatch-dark .hydrowatch-user-card,
-.hydrowatch-dark .hydrowatch-sidebar-toggle,
-.hydrowatch-dark .hydrowatch-theme-toggle,
-.hydrowatch-dark .hydrowatch-hero-chip,
-.hydrowatch-dark .hydrowatch-command-grid > div {
+.sitani-dark .sitani-sidebar > .sitani-brand,
+.sitani-dark .sitani-user-card,
+.sitani-dark .sitani-sidebar-toggle,
+.sitani-dark .sitani-theme-toggle,
+.sitani-dark .sitani-hero-chip,
+.sitani-dark .sitani-command-grid > div {
     background: rgba(18, 31, 29, 0.78);
     border-color: rgba(134, 239, 172, 0.11);
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
-.hydrowatch-dark .hydrowatch-sidebar > .hydrowatch-brand {
+.sitani-dark .sitani-sidebar > .sitani-brand {
     background:
         radial-gradient(circle at top right, rgba(34, 197, 94, 0.18), transparent 42%),
         linear-gradient(135deg, rgba(20, 34, 31, 0.96), rgba(13, 27, 23, 0.92));
 }
 
-.hydrowatch-dark .hydrowatch-sidebar-toggle:hover,
-.hydrowatch-dark .hydrowatch-theme-toggle:hover,
-.hydrowatch-dark .hydrowatch-sidebar .menu li > *:not(ul):not(.menu-title):not(details):hover,
-.hydrowatch-dark .hydrowatch-sidebar .menu li > details > summary:hover {
+.sitani-dark .sitani-sidebar-toggle:hover,
+.sitani-dark .sitani-theme-toggle:hover,
+.sitani-dark .sitani-sidebar .menu li > *:not(ul):not(.menu-title):not(details):hover,
+.sitani-dark .sitani-sidebar .menu li > details > summary:hover {
     background: rgba(28, 46, 41, 0.88);
     color: #dcfce7;
 }
 
-.hydrowatch-dark .hydrowatch-sidebar .menu li > *:not(ul):not(.menu-title):not(details):active,
-.hydrowatch-dark .hydrowatch-sidebar .menu li > *:not(ul):not(.menu-title):not(details).active,
-.hydrowatch-dark .hydrowatch-sidebar .menu li > details > summary:active {
+.sitani-dark .sitani-sidebar .menu li > *:not(ul):not(.menu-title):not(details):active,
+.sitani-dark .sitani-sidebar .menu li > *:not(ul):not(.menu-title):not(details).active,
+.sitani-dark .sitani-sidebar .menu li > details > summary:active {
     background: rgba(22, 101, 52, 0.32);
     color: #dcfce7;
     box-shadow: inset 0 0 0 1px rgba(134, 239, 172, 0.16);
 }
 
-.hydrowatch-dark .hydrowatch-sidebar hr,
-.hydrowatch-dark .hydrowatch-sidebar .menu-separator {
+.sitani-dark .sitani-sidebar hr,
+.sitani-dark .sitani-sidebar .menu-separator {
     border-color: rgba(134, 239, 172, 0.11);
 }
 
-.hydrowatch-dark .hydrowatch-dashboard,
-.hydrowatch-dark .hydrowatch-hero-title,
-.hydrowatch-dark .hydrowatch-section-title,
-.hydrowatch-dark .hydrowatch-stat-value,
-.hydrowatch-dark .hydrowatch-command-title,
-.hydrowatch-dark .text-slate-900,
-.hydrowatch-dark .text-slate-800 {
+.sitani-dark .sitani-dashboard,
+.sitani-dark .sitani-hero-title,
+.sitani-dark .sitani-section-title,
+.sitani-dark .sitani-stat-value,
+.sitani-dark .sitani-command-title,
+.sitani-dark .text-slate-900,
+.sitani-dark .text-slate-800 {
     color: #f4f7fb !important;
 }
 
-.hydrowatch-dark .hydrowatch-hero-subtitle,
-.hydrowatch-dark .hydrowatch-section-subtitle,
-.hydrowatch-dark .hydrowatch-command-copy,
-.hydrowatch-dark .hydrowatch-stat-label,
-.hydrowatch-dark .hydrowatch-command-grid span,
-.hydrowatch-dark .hydrowatch-sensor-label,
-.hydrowatch-dark .hydrowatch-empty-copy,
-.hydrowatch-dark .text-slate-600,
-.hydrowatch-dark .text-slate-500,
-.hydrowatch-dark .text-slate-400 {
+.sitani-dark .sitani-hero-subtitle,
+.sitani-dark .sitani-section-subtitle,
+.sitani-dark .sitani-command-copy,
+.sitani-dark .sitani-stat-label,
+.sitani-dark .sitani-command-grid span,
+.sitani-dark .sitani-sensor-label,
+.sitani-dark .sitani-empty-copy,
+.sitani-dark .text-slate-600,
+.sitani-dark .text-slate-500,
+.sitani-dark .text-slate-400 {
     color: #9fb0c2 !important;
 }
 
-.hydrowatch-dark .hydrowatch-eyebrow,
-.hydrowatch-dark .hydrowatch-command-label,
-.hydrowatch-dark .hydrowatch-empty-title,
-.hydrowatch-dark .hydrowatch-command-grid strong {
+.sitani-dark .sitani-eyebrow,
+.sitani-dark .sitani-command-label,
+.sitani-dark .sitani-empty-title,
+.sitani-dark .sitani-command-grid strong {
     color: #86efac;
 }
 
-.hydrowatch-dark .hydrowatch-hero-chip-soft {
+.sitani-dark .sitani-hero-chip-soft {
     color: #bbf7d0;
     background: rgba(22, 101, 52, 0.24);
     border-color: rgba(134, 239, 172, 0.14);
 }
 
-.hydrowatch-dark .hydrowatch-card {
+.sitani-dark .sitani-card {
     background: rgba(17, 28, 28, 0.9) !important;
     border-color: rgba(148, 163, 184, 0.13);
     box-shadow: 0 1px 0 rgba(255, 255, 255, 0.03), 0 16px 38px rgba(0, 0, 0, 0.24) !important;
 }
 
-.hydrowatch-dark .hydrowatch-card:hover {
+.sitani-dark .sitani-card:hover {
     border-color: rgba(134, 239, 172, 0.22);
     box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04), 0 18px 40px rgba(0, 0, 0, 0.3) !important;
 }
 
-.hydrowatch-dark .hydrowatch-command-card,
-.hydrowatch-dark .hydrowatch-empty-block {
+.sitani-dark .sitani-command-card,
+.sitani-dark .sitani-empty-block {
     background:
         radial-gradient(circle at top right, rgba(34, 197, 94, 0.16), transparent 34%),
         linear-gradient(135deg, rgba(17, 29, 27, 0.96), rgba(11, 24, 20, 0.88));
@@ -853,68 +853,68 @@ option {
     box-shadow: 0 16px 38px rgba(0, 0, 0, 0.22);
 }
 
-.hydrowatch-dark .hydrowatch-empty-state {
+.sitani-dark .sitani-empty-state {
     background: rgba(17, 28, 28, 0.82);
     border-color: rgba(134, 239, 172, 0.18);
 }
 
-.hydrowatch-dark .hydrowatch-empty-icon {
+.sitani-dark .sitani-empty-icon {
     background: linear-gradient(135deg, rgba(22, 101, 52, 0.42), rgba(20, 83, 45, 0.32));
     color: #86efac;
 }
 
-.hydrowatch-dark .hydrowatch-sensor-tile,
-.hydrowatch-dark .bg-green-50\/80,
-.hydrowatch-dark .bg-amber-50,
-.hydrowatch-dark .bg-sky-50,
-.hydrowatch-dark .bg-emerald-50 {
+.sitani-dark .sitani-sensor-tile,
+.sitani-dark .bg-green-50\/80,
+.sitani-dark .bg-amber-50,
+.sitani-dark .bg-sky-50,
+.sitani-dark .bg-emerald-50 {
     background-color: rgba(15, 23, 42, 0.38) !important;
     border-color: rgba(148, 163, 184, 0.12);
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
-.hydrowatch-dark .divider::before,
-.hydrowatch-dark .divider::after {
+.sitani-dark .divider::before,
+.sitani-dark .divider::after {
     background-color: rgba(148, 163, 184, 0.16);
 }
 
-.hydrowatch-dark .hydrowatch-table {
+.sitani-dark .sitani-table {
     color: #cbd5e1;
 }
 
-.hydrowatch-dark .hydrowatch-table thead th {
+.sitani-dark .sitani-table thead th {
     background: linear-gradient(180deg, rgba(19, 31, 32, 0.96), rgba(15, 23, 42, 0.96));
     color: #a8b7c8;
     border-bottom-color: rgba(148, 163, 184, 0.16);
 }
 
-.hydrowatch-dark .hydrowatch-table tbody td {
+.sitani-dark .sitani-table tbody td {
     border-bottom-color: rgba(148, 163, 184, 0.1);
 }
 
-.hydrowatch-dark .hydrowatch-table tbody tr:hover {
+.sitani-dark .sitani-table tbody tr:hover {
     background-color: rgba(34, 197, 94, 0.07);
 }
 
 @media (min-width: 1024px) {
-    .hydrowatch-drawer-side {
+    .sitani-drawer-side {
         position: sticky;
         top: 0;
         align-self: start;
     }
 
-    .hydrowatch-content-shell {
+    .sitani-content-shell {
         padding: 1.35rem;
     }
 
-    .hydrowatch-content-panel {
+    .sitani-content-panel {
         padding: 2rem;
         min-height: calc(100vh - 2.7rem);
     }
 }
 
 @media (max-width: 1023px) {
-    .hydrowatch-sidebar {
+    .sitani-sidebar {
         width: min(18rem, calc(100vw - 1rem)) !important;
         min-width: min(18rem, calc(100vw - 1rem)) !important;
         max-width: calc(100vw - 1rem);
@@ -925,56 +925,56 @@ option {
         padding: 1rem 0.9rem 1.5rem;
     }
 
-    .hydrowatch-drawer-side {
+    .sitani-drawer-side {
         position: fixed;
     }
 
-    .hydrowatch-content-shell {
+    .sitani-content-shell {
         padding: 1rem 0.85rem 0.85rem;
     }
 
-    .hydrowatch-content-panel {
+    .sitani-content-panel {
         border-radius: 1.5rem;
     }
 
-    .hydrowatch-drawer-side {
+    .sitani-drawer-side {
         max-width: 100vw;
     }
 
-    .hydrowatch-drawer-side > .drawer-overlay {
+    .sitani-drawer-side > .drawer-overlay {
         background-color: rgba(15, 23, 42, 0.32);
     }
 }
 
 @media (max-width: 767px) {
-    .hydrowatch-hero {
+    .sitani-hero {
         flex-direction: column;
         align-items: stretch;
     }
 
-    .hydrowatch-hero-meta {
+    .sitani-hero-meta {
         justify-content: flex-start;
     }
 
-    .hydrowatch-command-card {
+    .sitani-command-card {
         grid-template-columns: 1fr;
     }
 
-    .hydrowatch-command-grid {
+    .sitani-command-grid {
         grid-template-columns: 1fr;
     }
 
-    .hydrowatch-content-panel {
+    .sitani-content-panel {
         padding: 1.1rem;
     }
 
-    .hydrowatch-stat-card,
-    .hydrowatch-node-card {
+    .sitani-stat-card,
+    .sitani-node-card {
         padding: 1rem !important;
     }
 
-    .hydrowatch-table thead th,
-    .hydrowatch-table tbody td {
+    .sitani-table thead th,
+    .sitani-table tbody td {
         padding: 0.9rem 0.85rem;
     }
 }

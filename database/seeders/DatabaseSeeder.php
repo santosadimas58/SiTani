@@ -10,7 +10,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         User::firstOrCreate(
-            ['email' => 'admin@hydrowatch.com'],
+            ['email' => 'admin@sitani.com'],
             [
                 'name'     => 'Administrator',
                 'password' => Hash::make('password'),
@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
         );
 
         User::firstOrCreate(
-            ['email' => 'user@hydrowatch.com'],
+            ['email' => 'user@sitani.com'],
             [
                 'name'     => 'Example User',
                 'password' => Hash::make('password'),

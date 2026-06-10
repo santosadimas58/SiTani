@@ -1,70 +1,77 @@
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
+#include <DHT.h>
 
 /*
-  HydroWatch Wemos D1 mini MQTT firmware
+  SiTani Wemos D1 mini MQTT sensor node.
 
-  Publish sensor:
-    hydrowatch/NODE-01/sensor
+  Sensors:
+    DHT22             : D2 / GPIO4
+    Soil moisture mux : A0
+    Mux select S0     : D5 / GPIO14
+    Mux select S1     : D6 / GPIO12
+    Mux select S2     : D7 / GPIO13
 
-  Subscribe pompa:
-    hydrowatch/NODE-01/pump
+  Publish:
+    sitani/NODE-02/sensor
 */
 
-const char* WIFI_SSID = "NAMA_WIFI";
-const char* WIFI_PASSWORD = "PASSWORD_WIFI";
+const char* WIFI_SSID = "mukaroms";
+const char* WIFI_PASSWORD = "mukarom01";
 
-const char* MQTT_HOST = "192.168.1.10";
+const char* MQTT_HOST = "192.168.1.21";
 const int MQTT_PORT = 1883;
 const char* MQTT_USERNAME = "";
 const char* MQTT_PASSWORD = "";
 
-const char* NODE_CODE = "NODE-01";
-const char* MQTT_BASE_TOPIC = "hydrowatch";
+const char* NODE_CODE = "NODE-02";
+const char* MQTT_BASE_TOPIC = "sitani";
 
-const unsigned long SEND_INTERVAL_MS = 5000;
+const unsigned long SEND_INTERVAL_MS = 10000;
 const unsigned long MQTT_RECONNECT_MS = 5000;
 
+const int DHT_PIN = D2;
+const int DHT_TYPE = DHT22;
 const int SOIL_PIN = A0;
-const int FLOW_PIN = D5;
-const int RELAY_PIN = D6;
+const int MUX_S0_PIN = D5;
+const int MUX_S1_PIN = D6;
+const int MUX_S2_PIN = D7;
 const int STATUS_LED_PIN = LED_BUILTIN;
 
-const bool RELAY_ACTIVE_LOW = true;
 const bool STATUS_LED_ACTIVE_LOW = true;
 
-const int SOIL_DRY_ADC = 850;
-const int SOIL_WET_ADC = 350;
-const float DEFAULT_PH = 7.0;
-const float FLOW_PULSES_PER_LITER = 450.0;
+const int SOIL_1_MUX_CHANNEL = 0;
+const int SOIL_2_MUX_CHANNEL = 1;
+
+const int SOIL_WET_ADC = 300;
+const int SOIL_MOIST_ADC = 550;
+const int SOIL_DRY_ADC = 800;
 
 WiFiClient wifiClient;
 PubSubClient mqtt(wifiClient);
+DHT dht(DHT_PIN, DHT_TYPE);
 
-volatile unsigned long flowPulseCount = 0;
 unsigned long lastSendAt = 0;
 unsigned long lastMqttReconnectAt = 0;
 
-void ICACHE_RAM_ATTR onFlowPulse()
-{
-  flowPulseCount++;
-}
+struct SoilReading {
+  int raw;
+  float percent;
+};
 
 void setup()
 {
   Serial.begin(115200);
   delay(200);
 
-  pinMode(RELAY_PIN, OUTPUT);
   pinMode(STATUS_LED_PIN, OUTPUT);
-  pinMode(FLOW_PIN, INPUT_PULLUP);
-
-  setPump(false);
-  attachInterrupt(digitalPinToInterrupt(FLOW_PIN), onFlowPulse, RISING);
+  pinMode(MUX_S0_PIN, OUTPUT);
+  pinMode(MUX_S1_PIN, OUTPUT);
+  pinMode(MUX_S2_PIN, OUTPUT);
+  dht.begin();
 
   connectWiFi();
   mqtt.setServer(MQTT_HOST, MQTT_PORT);
-  mqtt.setCallback(onMqttMessage);
 }
 
 void loop()
@@ -131,7 +138,7 @@ void ensureMqtt()
 
   lastMqttReconnectAt = millis();
 
-  String clientId = String("hydrowatch-") + NODE_CODE + "-" + String(ESP.getChipId(), HEX);
+  String clientId = String("sitani-") + NODE_CODE + "-" + String(ESP.getChipId(), HEX);
   Serial.print("Menghubungkan MQTT: ");
   Serial.println(MQTT_HOST);
 
@@ -148,25 +155,32 @@ void ensureMqtt()
     return;
   }
 
-  String pumpTopic = topic("pump");
-  mqtt.subscribe(pumpTopic.c_str());
-  Serial.print("MQTT subscribe ");
-  Serial.println(pumpTopic);
+  Serial.println("MQTT tersambung.");
 }
 
 void publishSensorReading()
 {
-  const float soil = readSoilMoisturePercent();
-  const float tempC = readTemperatureC();
-  const float phAir = readPh();
-  const float flowRate = readFlowRateLpm();
+  const SoilReading soil1 = readSoil(SOIL_1_MUX_CHANNEL);
+  const SoilReading soil2 = readSoil(SOIL_2_MUX_CHANNEL);
+  const int soilRawAvg = (soil1.raw + soil2.raw) / 2;
+  const float tempC = dht.readTemperature();
+  const float humidity = dht.readHumidity();
+
+  if (isnan(tempC) || isnan(humidity)) {
+    Serial.println("Pembacaan DHT22 gagal; data tidak dikirim.");
+    return;
+  }
 
   String payload = "{";
   payload += "\"node_code\":\"" + String(NODE_CODE) + "\",";
-  payload += "\"soil_moisture\":" + String(soil, 1) + ",";
+  payload += "\"soil_1\":" + String(soil1.percent, 1) + ",";
+  payload += "\"soil_2\":" + String(soil2.percent, 1) + ",";
+  payload += "\"soil_raw_1\":" + String(soil1.raw) + ",";
+  payload += "\"soil_raw_2\":" + String(soil2.raw) + ",";
+  payload += "\"soil_raw_avg\":" + String(soilRawAvg) + ",";
+  payload += "\"soil_status\":\"" + soilStatus(soilRawAvg) + "\",";
   payload += "\"temperature\":" + String(tempC, 1) + ",";
-  payload += "\"ph\":" + String(phAir, 2) + ",";
-  payload += "\"flow\":" + String(flowRate, 2);
+  payload += "\"air_humidity\":" + String(humidity, 1);
   payload += "}";
 
   String sensorTopic = topic("sensor");
@@ -179,81 +193,50 @@ void publishSensorReading()
   Serial.println(payload);
 }
 
-void onMqttMessage(char* topicName, byte* payloadBytes, unsigned int length)
-{
-  String message;
-  for (unsigned int i = 0; i < length; i++) {
-    message += (char) payloadBytes[i];
-  }
-
-  Serial.print("MQTT message ");
-  Serial.print(topicName);
-  Serial.print(" ");
-  Serial.println(message);
-
-  bool pumpOn = message.indexOf("\"pump_on\":true") >= 0
-    || message.indexOf("\"pump_status\":\"ON\"") >= 0;
-
-  setPump(pumpOn);
-}
-
 String topic(const char* suffix)
 {
   return String(MQTT_BASE_TOPIC) + "/" + NODE_CODE + "/" + suffix;
 }
 
-float readSoilMoisturePercent()
+SoilReading readSoil(int channel)
 {
+  selectMuxChannel(channel);
+  delay(5);
+
+  analogRead(SOIL_PIN);
+  delay(2);
+
   int raw = analogRead(SOIL_PIN);
   float percent = (float)(SOIL_DRY_ADC - raw) * 100.0 / (float)(SOIL_DRY_ADC - SOIL_WET_ADC);
-  return constrain(percent, 0.0, 100.0);
+
+  SoilReading reading;
+  reading.raw = raw;
+  reading.percent = constrain(percent, 0.0, 100.0);
+  return reading;
 }
 
-float readTemperatureC()
+void selectMuxChannel(int channel)
 {
-  return 28.0;
+  digitalWrite(MUX_S0_PIN, bitRead(channel, 0));
+  digitalWrite(MUX_S1_PIN, bitRead(channel, 1));
+  digitalWrite(MUX_S2_PIN, bitRead(channel, 2));
 }
 
-float readPh()
+String soilStatus(int raw)
 {
-  return DEFAULT_PH;
-}
-
-float readFlowRateLpm()
-{
-  static unsigned long lastReadAt = millis();
-  unsigned long now = millis();
-  unsigned long elapsedMs = now - lastReadAt;
-
-  if (elapsedMs == 0) {
-    return 0.0;
+  if (raw <= SOIL_WET_ADC) {
+    return "basah";
   }
 
-  noInterrupts();
-  unsigned long pulses = flowPulseCount;
-  flowPulseCount = 0;
-  interrupts();
-
-  lastReadAt = now;
-
-  float liters = pulses / FLOW_PULSES_PER_LITER;
-  return liters * 60000.0 / elapsedMs;
-}
-
-void setPump(bool on)
-{
-  digitalWrite(RELAY_PIN, relayLevel(on));
-  Serial.print("Pompa: ");
-  Serial.println(on ? "ON" : "OFF");
-}
-
-int relayLevel(bool on)
-{
-  if (RELAY_ACTIVE_LOW) {
-    return on ? LOW : HIGH;
+  if (raw <= SOIL_MOIST_ADC) {
+    return "lembap";
   }
 
-  return on ? HIGH : LOW;
+  if (raw >= SOIL_DRY_ADC) {
+    return "kering";
+  }
+
+  return "mulai_kering";
 }
 
 void setStatusLed(bool on)

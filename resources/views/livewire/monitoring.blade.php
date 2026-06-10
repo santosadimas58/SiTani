@@ -15,26 +15,21 @@
             <div class="space-y-3">
                 <div class="flex justify-between items-center">
                     <span class="text-sm opacity-60">💧 Kelembaban Tanah</span>
-                    <span class="font-bold text-primary">{{ $reading->kelembaban_tanah }}%</span>
+                    <span class="font-bold text-primary">{{ $reading->kelembaban_tanah ?? '-' }}%</span>
                 </div>
-                <progress class="progress progress-primary w-full" value="{{ $reading->kelembaban_tanah }}" max="100"></progress>
+                <progress class="progress progress-primary w-full" value="{{ $reading->kelembaban_tanah ?? 0 }}" max="100"></progress>
 
                 <div class="flex justify-between items-center">
                     <span class="text-sm opacity-60">🌡️ Suhu</span>
-                    <span class="font-bold text-warning">{{ $reading->suhu }}°C</span>
+                    <span class="font-bold text-warning">{{ $reading->suhu ?? '-' }}°C</span>
                 </div>
-                <progress class="progress progress-warning w-full" value="{{ $reading->suhu }}" max="50"></progress>
+                <progress class="progress progress-warning w-full" value="{{ $reading->suhu ?? 0 }}" max="50"></progress>
 
                 <div class="flex justify-between items-center">
-                    <span class="text-sm opacity-60">⚗️ pH Air</span>
-                    <span class="font-bold text-info">{{ $reading->ph_air }}</span>
+                    <span class="text-sm opacity-60">🌫️ Kelembaban Udara</span>
+                    <span class="font-bold text-info">{{ $reading->kelembaban_udara ?? '-' }}%</span>
                 </div>
-                <progress class="progress progress-info w-full" value="{{ $reading->ph_air }}" max="14"></progress>
-
-                <div class="flex justify-between items-center">
-                    <span class="text-sm opacity-60">🚿 Debit Air</span>
-                    <span class="font-bold text-secondary">{{ $reading->debit_air }} L/m</span>
-                </div>
+                <progress class="progress progress-info w-full" value="{{ $reading->kelembaban_udara ?? 0 }}" max="100"></progress>
             </div>
             <p class="text-xs opacity-30 mt-3 text-right">{{ $reading->created_at->diffForHumans() }}</p>
             @else
